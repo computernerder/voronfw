@@ -23,6 +23,11 @@ class RearBrushGuardGeometryTests(unittest.TestCase):
         self.assertFalse(blocked((40, 320, 20), (150, 320, 20)))
         self.assertFalse(blocked((40, 320, 22), (150, 320, 20)))
 
+    def test_z_trim_requires_margin_on_travel_moves(self):
+        # PRINT_START applies a -0.03 mm Z trim after contact homing.
+        self.assertTrue(blocked((175, 155, 19.97), (50, 350, 19.97)))
+        self.assertFalse(blocked((175, 155, 20.97), (50, 350, 20.97)))
+
     def test_lowering_inside_zone_is_blocked_but_raising_is_allowed(self):
         self.assertTrue(blocked((100, 320, 20), (100, 320, 2)))
         self.assertFalse(blocked((100, 320, 2), (100, 320, 20)))

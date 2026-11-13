@@ -100,7 +100,7 @@ class RearBrushGuard:
         raise self.printer.command_error(
             'Rear brush guard blocked XYZ move from '
             '(%.2f, %.2f, %.2f) to (%.2f, %.2f, %.2f); '
-            'raise Z to %.1f before crossing X%.1f..%.1f Y%.1f..%.1f'
+            'raise physical Z above %.1f before crossing X%.1f..%.1f Y%.1f..%.1f'
             % (start[0], start[1], start[2], end[0], end[1], end[2],
                self.z_max, self.x_min, self.x_max, self.y_min, self.y_max))
 
